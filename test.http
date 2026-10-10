@@ -1,0 +1,37 @@
+### 1. ทดสอบสร้างงาน
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+    "title": "เขียนโค้ดด้วย Mongoose",
+    "priority": "high"
+}
+
+### 2. ทดสอบดึงข้อมูล (ก๊อปปี้ _id จากตรงนี้)
+GET http://localhost:3000/tasks
+
+### 3. ทดสอบลบงานแบบ "ไม่มี Token" (ข้อ 8-10 ต้องได้ 401 คุณไม่มีสิทธิ์เข้าถึง!)
+DELETE http://localhost:3000/tasks/123456
+
+### 4. ทดสอบสมัครสมาชิก (Register - ข้อ 11)
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "admi",
+    "password": "password123"
+}
+
+### 5. ทดสอบการล็อกอินเพื่อรับ JWT Token (Login - ข้อ 12-13)
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "admi",
+    "password": "password123"
+}
+
+### 6. ทดสอบการลบงานแบบ "มี Token" (ข้อ 15-16 นำ _id และ Token ที่ได้มาใส่)
+
+DELETE http://localhost:3000/tasks/6ac7f338ee279d4315ecd3ba
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYzlmZTgyYWYxMTNmZWUyYjA0OGRjMSIsImlhdCI6MTc5MTYyMjkzMywiZXhwIjoxNzkxNjI2NTMzfQ.yDUrH09aBp8hgfpTPd3qSSIPU0mR4xQAta8-CK8X5iM
